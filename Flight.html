@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Diek Air</title>
+</head>
+<body>
+	<h1>Welcome to Diek Airline</h1>
+  <label for="">Choose your Departure</label>
+  <select  id="Departure">
+    <option value ="Athens">Athens</option>
+  </select>
+<br>
+<br>
+
+  <label>Choose your destination</label>
+  <select  id="destination">
+    <option value ="Berlin">Berlin</option>
+    <option value="Lisbon">Lisbon</option>
+    <option value="Oslo">Oslo</option>
+    <option value="Paris">Paris</option>
+    <option value ="Accra">Accra</option>
+    <option value="Lagos">Lagos</option>
+    <option value="Adis baba">Adis baba</option>
+    <option value="Hong Kong">Hong Kong</option>
+    <option value ="Vancuvar">Vancuvar</option>
+    <option value="Washington D.C.">Washington D.C.</option>
+    <option value="Mexico City">Mexico City</option>
+    <option value="San Jose">San Jose</option>
+    <option value ="Panama City">Panama City</option>
+    <option value="Kingston">Kingston</option>
+    <option value="Brasilia">Brasilia</option>
+    <option value="Lima">Lima</option>
+  </select>
+  <br>
+    	<br>
+    	<form>
+  <label>Please choose date</label>
+  	<input type="date" id="myDate" required/>
+  	</form>
+  	<br>
+  	<br>
+  	  <input type="radio" id="one_way"  name="trip" value="one_way" checked="">
+  <label for="one_way">One way</label><br>
+    <input type="radio" id="Round" name="trip" value="Round">
+  <label for="Round">Round trip</label ><br>
+
+	<br>
+  	<br>
+  <label for="Cabin" >Cabin</label>
+  <select id="Cabin" >
+    <option value ="Economy">Economy</option>
+    <option value="Bussiness Class">Bussiness Class</option>
+</select>
+	<br>
+  	<br>
+
+<label>Passenger</label>
+<input type="number" id="Passenger" >
+
+	<br>
+  	<br>
+<label for=""></label>
+<input type="submit" onclick="buttonclick()" value="submit" >
+
+<p id="error">
+	<p id="result">
+<script>
+	 function buttonclick() {
+
+	 	var price;
+	 	var full_price;
+	 	var r_price=2;
+	 	var b_class=1.4;
+	 	var date = document.getElementById("myDate").value;
+	 	var Cabin_ = document.getElementById("Cabin").value;
+	 	var  qantity = Number(document.getElementById("Passenger").value);
+	   var destination = document.getElementById("destination").value;
+	   var Round = document.getElementById("Round").checked;
+	    var one_way = document.getElementById("one_way").checked;
+	   if (qantity <= 0) {
+        document.getElementById("error").innerHTML = "Please select the right amount";
+        return;
+      }
+      if (date = undefined) 
+      {
+      	document.getElementById("error").innerHTML= "Please add a date";
+      }
+       switch (destination) {
+          case "Berlin":
+          price=100;
+          full_price= qantity * price; 
+           break;
+        case "Lisbon":
+          price=120;
+          full_price= qantity * price; 
+           break;
+         case "Oslo":
+          price=207;
+          full_price= qantity * price; 
+          break;
+         case "Paris":
+          price=100;
+          full_price= qantity * price;
+            break;
+            case "Accra":
+          price=405;
+          full_price= qantity * price; 
+            break;
+        case "Lagos":
+          price=345;
+          full_price= qantity * price;
+            break;
+         case "Adis baba":
+          price=299;
+          full_price= qantity * price;
+            break;
+         case "Hong Kong":
+          price=499;
+          full_price= qantity * price;
+            break;
+             case "Washington D.C.":
+          price=690;
+         full_price= qantity * price;
+            break;
+        case "Mexico City":
+          price=520;
+          full_price= qantity * price;
+            break;
+         case "Panama City":
+          price=550;
+          full_price= qantity * price;
+            break;
+         case "San Jose":
+          price=530;
+          full_price= qantity * price;
+            break;
+            case "Kingston":
+          price=530;
+          full_price= qantity * price;
+            break;
+        case "Brasilia":
+          price=489;
+          full_price= qantity * price;
+            break;
+         case "Berlin":
+          price=100;
+         full_price= qantity * price;
+            break;
+         case "Lima":
+          price=489;
+          full_price= qantity * price;
+          }
+if (Cabin_ != "Economy") {
+	full_price=	b_class*full_price;
+}
+else {
+	 full_price=full_price;
+}
+
+if (Round===true) 
+{
+r_price=full_price*2;
+document.getElementById("result").innerHTML ="Total Flight price " + r_price + "£";
+  document.getElementById("error").innerHTML = "Your choosen date of Departure is " + date;
+}
+else{
+	
+	document.getElementById("result").innerHTML = "Total Flight price " + full_price +"£";
+  document.getElementById("error").innerHTML = "Your choosen date of Departure is "+ date;
+}
+        }
+
+</script>
+
+</body>
+</html>
